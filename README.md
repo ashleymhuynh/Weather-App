@@ -63,7 +63,7 @@ https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=650fb9db077f61ca
 
 ## Code Snippet
 
-[Code Snippet](/Users/ashleymarie/Pictures/codeSnippet.png)
+![Code Snippet](/Users/ashleymarie/Projects/Weather-App/images/codeSnippet.png)
 
 ## Change Log
 
