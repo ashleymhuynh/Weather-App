@@ -1,4 +1,4 @@
-body {
+/* body {
   background: radial-gradient(
     circle at -8.9% 51.2%,
     rgb(255, 124, 0) 0%,
@@ -8,19 +8,56 @@ body {
     rgb(37, 45, 49) 24.5%,
     rgb(37, 45, 49) 66%
   );
-}
+  padding: 20px;
+} */
 h1 {
-  color: #fff;
+  /* color: #fff; */
   display: block;
   text-align: center;
 }
-.container {
-  border: 3px solid black;
-  display: block;
-  padding: 40px;
-  background: rgb(149, 149, 149, 0.9);
+ul {
+  padding: 0;
+  margin: 30px 15px 0 15px;
 }
-.input-city {
-  display: flex;
-  margin: 0 50px;
+li {
+  list-style-type: none;
+}
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 3px solid black;
+  border-radius: 5px;
+  display: grid;
+  grid-template-areas:
+    "A A A A A"
+    "B B C C D"
+    "F G H I J";
+}
+#search-form {
+  grid-area: A;
+}
+#currentweatherinfo1 {
+  grid-area: B;
+}
+#currentweatherinfo2 {
+  grid-area: C;
+}
+#currentweatherinfo3 {
+  grid-area: D;
+}
+#future-date1 {
+  grid-area: F;
+}
+#future-date2 {
+  grid-area: G;
+}
+#future-date3 {
+  grid-area: H;
+}
+#future-date4 {
+  grid-area: I;
+}
+#future-date5 {
+  grid-area: J;
 }
