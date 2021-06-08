@@ -1,0 +1,26 @@
+body {
+  background: radial-gradient(
+    circle at -8.9% 51.2%,
+    rgb(255, 124, 0) 0%,
+    rgb(255, 124, 0) 15.9%,
+    rgb(255, 163, 77) 15.9%,
+    rgb(255, 163, 77) 24.4%,
+    rgb(37, 45, 49) 24.5%,
+    rgb(37, 45, 49) 66%
+  );
+}
+h1 {
+  color: #fff;
+  display: block;
+  text-align: center;
+}
+.container {
+  border: 3px solid black;
+  display: block;
+  padding: 40px;
+  background: rgb(149, 149, 149, 0.9);
+}
+.input-city {
+  display: flex;
+  margin: 0 50px;
+}
