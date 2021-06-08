@@ -43,7 +43,7 @@ https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=650fb9db077f61ca
 
 ## Priority Matrix
 
-[Priority Matrix]()
+[Priority Matrix](/img/MatrixChart.png)
 
 ## Timeframes
 
@@ -63,7 +63,7 @@ https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=650fb9db077f61ca
 
 ## Code Snippet
 
-![Code Snippet](/Users/ashleymarie/Projects/Weather-App/images/codeSnippet.png)
+![Code Snippet](img/codeSnippet.png)
 
 ## Change Log
 
