@@ -51,19 +51,20 @@ https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=650fb9db077f61ca
 | -------------------- | :------: | :------------: | :-----------: | :---------: |
 | Initial HTML setup   |    H     |      3hrs      |               |             |
 | Axios set up         |    H     |      3hrs      |               |             |
-| Render results       |    H     |      6hrs      |               |             |
-| Other JS             |    H     |      6hrs      |               |             |
+| Render results       |    H     |      3hrs      |               |             |
+| JS Inital            |    H     |      3hrs      |               |             |
+| Other JS             |    H     |      3hrs      |               |             |
 | CSS for basic layout |    M     |      3hrs      |               |             |
 | CSS for results      |    M     |      3hrs      |               |             |
 | Image placement      |    M     |      3hrs      |               |             |
-| Media query          |    H     |      4hrs      |               |             |
-| General Research     |    H     |      4hrs      |               |             |
-| Debugging            |    H     |      5hrs      |               |             |
-| Total                |    H     |     41hrs      |               |             |
+| Media query          |    H     |      3hrs      |               |             |
+| General Research     |    H     |      3hrs      |               |             |
+| Debugging            |    H     |      3hrs      |               |             |
+| Total                |    H     |     33hrs      |               |             |
 
 ## Code Snippet
 
-![Code Snippet](img/CodeSnippet.png)
+[Code Snippet](img/CodeSnippet.png)
 
 ## Change Log
 
