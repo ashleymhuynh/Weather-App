@@ -10,7 +10,7 @@ This will allow users to look up the weather for the day as well as a 5 day fore
 
 ## API and Data Sample
 
-https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=650fb9db077f61ca16fc2d3df93a734e
+https://api.openweathermap.org/data/2.5/weather?q=Los%20Angeles&appid=650fb9db077f61ca16fc2d3df93a734e
 
 ## Wireframes
 
@@ -23,6 +23,7 @@ https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=650fb9db077f61ca
 - Axios call on OpenWeather API
 - Display results on page
 - Include icon on weather
+- Implement UI by changing text colors and background to match time of day (ie. night/ dark colors)
 - Provide basic forecast for next 5 days
 - Clear previous results upon secondary search
 
