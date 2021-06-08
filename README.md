@@ -50,15 +50,15 @@ https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=650fb9db077f61ca
 | Component            | Priority | Estimated Time | Time Invested | Actual Time |
 | -------------------- | :------: | :------------: | :-----------: | :---------: |
 | Initial HTML setup   |    H     |      3hrs      |               |             |
-| Axios set up         |    H     |      6hrs      |               |             |
+| Axios set up         |    H     |      3hrs      |               |             |
 | Render results       |    H     |      6hrs      |               |             |
 | Other JS             |    H     |      6hrs      |               |             |
 | CSS for basic layout |    M     |      3hrs      |               |             |
 | CSS for results      |    M     |      3hrs      |               |             |
 | Image placement      |    M     |      3hrs      |               |             |
-| Media query          |    H     |      3hrs      |               |             |
+| Media query          |    H     |      4hrs      |               |             |
 | General Research     |    H     |      4hrs      |               |             |
-| Debugging            |    H     |      4hrs      |               |             |
+| Debugging            |    H     |      5hrs      |               |             |
 | Total                |    H     |     41hrs      |               |             |
 
 ## Code Snippet
