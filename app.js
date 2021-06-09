@@ -51,12 +51,27 @@ async function fetchData(inputCity) {
 }
 
 function displayTemperature(cityInfo) {
-  let weatherDescriptionElement = document.getElementById(
-    "weather-description"
+  let descriptionElement = document.getElementById("weather-description");
+  let iconElement = document.getElementById("weather-icon");
+  let highTempElement = document.getElementById("currenthightemp");
+  let lowTempElement = document.getElementById("currentlowtemp");
+
+  let description = cityInfo.weather[0].description;
+  descriptionElement.innerHTML = description;
+  let icon = cityInfo.weather[0].icon;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
-  let weatherDescription = cityInfo.weather[0].description;
-  weatherDescriptionElement.innerHTML = weatherDescription;
+  iconElement.setAttribute("alt", description);
+
+  let highTemp = Math.round(cityInfo.main.temp_max);
+  let lowTemp = Math.round(cityInfo.main.temp_min);
+  highTempElement.innerHTML = `${highTemp}º`;
+  lowTempElement.innerHTML = `${lowTemp}º`;
 }
+
+fetchData("Los Angeles");
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);

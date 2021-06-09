@@ -22,13 +22,19 @@
         <h4 id="currentdate">Last updated: <span id="date"></span></h4>
         <h4 id="weather-description">Clear Skys</h4>
       </div>
-      <div id="currentweatherinfo2">
-        <img src="" alt="weather image" id="weather-icon" />
-        <h2 id="currenttemp">
-          <strong>70</strong><span class="units">°F | <a href="#">ºC</a></span>
-        </h2>
+      <div class="currentweatherinfo2">
+        <img src="" id="weather-icon" width="120px" />
+        <div id="currenthighlowtemp">
+          H: <span id="currenthightemp"></span> | L:
+          <span id="currentlowtemp"></span>
+        </div>
       </div>
-      <div id="currentweatherinfo3">
+      <div class="currentweatherinfo3">
+        <h1 id="currenttemp">
+          <strong>70</strong><span class="units">°F | <a href="#">ºC</a></span>
+        </h1>
+      </div>
+      <div id="currentweatherinfo4">
         <ul>
           <li>Humidity; <span id="humidity">73%</span></li>
           <li>Wind: <span id="wind">2</span> mph</li>

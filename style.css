@@ -21,6 +21,7 @@ ul {
 }
 li {
   list-style-type: none;
+  text-transform: capitalize;
 }
 .container {
   max-width: 800px;
@@ -31,19 +32,23 @@ li {
   display: grid;
   grid-template-areas:
     "A A A A A"
-    "B B C C D"
+    "B B K C D"
     "F G H I J";
 }
 #search-form {
   grid-area: A;
 }
-#currentweatherinfo1 {
+.currentweatherinfo1 {
   grid-area: B;
+  text-transform: capitalize;
 }
-#currentweatherinfo2 {
+.currentweatherinfo2 {
+  grid-area: K;
+}
+.currentweatherinfo3 {
   grid-area: C;
 }
-#currentweatherinfo3 {
+.currentweatherinfo4 {
   grid-area: D;
 }
 #future-date1 {
@@ -60,4 +65,13 @@ li {
 }
 #future-date5 {
   grid-area: J;
+}
+#weather-icon {
+  display: block;
+  margin: 0 auto;
+}
+#currenthighlowtemp {
+  position: relative;
+  text-align: center;
+  margin-bottom: 25px;
 }
