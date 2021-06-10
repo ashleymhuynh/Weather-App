@@ -23,6 +23,7 @@ li {
   list-style-type: none;
   text-transform: capitalize;
 }
+
 .container {
   max-width: 800px;
   margin: 30px auto;
@@ -41,12 +42,20 @@ li {
 .currentweatherinfo1 {
   grid-area: B;
   text-transform: capitalize;
+  text-align: center;
+  line-height: 1px;
+  margin-top: 40px;
+}
+.currentweatherinfo1 #current-city {
+  font-size: 30px;
 }
 .currentweatherinfo2 {
   grid-area: K;
 }
 .currentweatherinfo3 {
   grid-area: C;
+  text-align: center;
+  margin-top: 40px;
 }
 .currentweatherinfo4 {
   grid-area: D;
@@ -66,6 +75,9 @@ li {
 #future-date5 {
   grid-area: J;
 }
+.futureweatherdate {
+  text-align: center;
+}
 #weather-icon {
   display: block;
   margin: 0 auto;
@@ -74,4 +86,15 @@ li {
   position: relative;
   text-align: center;
   margin-bottom: 25px;
+  font-size: 18px;
+}
+.currentweatherinfo3 strong {
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 400;
+}
+.currentweatherinfo3 .units {
+  position: relative;
+  font-size: 16px;
+  top: -24px;
 }

@@ -55,6 +55,9 @@ function displayTemperature(cityInfo) {
   let iconElement = document.getElementById("weather-icon");
   let highTempElement = document.getElementById("currenthightemp");
   let lowTempElement = document.getElementById("currentlowtemp");
+  let temperatureElement = document.querySelector("#currenttemp");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
 
   let description = cityInfo.weather[0].description;
   descriptionElement.innerHTML = description;
@@ -65,13 +68,50 @@ function displayTemperature(cityInfo) {
   );
   iconElement.setAttribute("alt", description);
 
+  fahrenheitTemp = cityInfo.main.temp;
+
   let highTemp = Math.round(cityInfo.main.temp_max);
   let lowTemp = Math.round(cityInfo.main.temp_min);
   highTempElement.innerHTML = `${highTemp}º`;
   lowTempElement.innerHTML = `${lowTemp}º`;
+  let currentTemp = Math.round(fahrenheitTemp);
+  temperatureElement.innerHTML = currentTemp;
+  let humidity = Math.round(cityInfo.main.humidity);
+  humidityElement.innerHTML = `${humidity}%`;
+  let windSpeed = Math.round(cityInfo.wind.speed);
+  windElement.innerHTML = windSpeed;
 }
 
-fetchData("Los Angeles");
+function displayCelsius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#currenttemp");
+  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  tempElement.innerHTML = Math.round(celsiusTemp);
+}
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#currenttemp");
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+//   let messageElement = document.querySelector(“#message”);
+//   if (highTemp <= 70) {
+//     messageElement.innerHTML = ““;
+//   } else {
+//     messageElement.innerHTML = ““;
+//   }
+// }
+
+let fahrenheitTemp = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+fetchData("Los Angeles");
