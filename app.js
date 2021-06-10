@@ -62,15 +62,16 @@ async function fetchData(inputCity) {
     const response = await axios.get(apiUrl);
     const futureResponse = await axios.get(futureUrl);
     const cityInfo = response.data;
+    const futureInfo = futureResponse.data.list;
     console.log(cityInfo);
     console.log(futureResponse.data.list);
-    displayTemperature(cityInfo);
+    displayTemperature(cityInfo, futureInfo);
   } catch (error) {
     console.error(error.message);
   }
 }
 
-function displayTemperature(cityInfo) {
+function displayTemperature(cityInfo, futureInfo) {
   let description = cityInfo.weather[0].description;
   descriptionElement.innerHTML = description;
   let icon = cityInfo.weather[0].icon;
@@ -92,6 +93,9 @@ function displayTemperature(cityInfo) {
   humidityElement.innerHTML = `${humidity}%`;
   let windSpeed = Math.round(cityInfo.wind.speed);
   windElement.innerHTML = windSpeed;
+
+  let futurehightemp1 = document.getElementById("futurehightemp1");
+  futurehightemp1.innerHTML = `${futureInfo[0].main.temp}º`;
 }
 
 function displayCelsius(event) {
