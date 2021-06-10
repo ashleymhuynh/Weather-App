@@ -11,6 +11,23 @@ let daytwo = document.getElementById("future-date2");
 let daythree = document.getElementById("future-date3");
 let dayfour = document.getElementById("future-date4");
 let dayfive = document.getElementById("future-date5");
+let futureHighTemp1Element = document.getElementById("futurehightemp1");
+let futureHighTemp2Element = document.getElementById("futurehightemp2");
+let futureHighTemp3Element = document.getElementById("futurehightemp3");
+let futureHighTemp4Element = document.getElementById("futurehightemp4");
+let futureHighTemp5Element = document.getElementById("futurehightemp5");
+
+let futureLowTemp1Element = document.getElementById("futurelowtemp1");
+let futureLowTemp2Element = document.getElementById("futurelowtemp2");
+let futureLowTemp3Element = document.getElementById("futurelowtemp3");
+let futureLowTemp4Element = document.getElementById("futurelowtemp4");
+let futureLowTemp5Element = document.getElementById("futurelowtemp5");
+
+let futureIcon1 = document.getElementById("futureicon1");
+let futureIcon2 = document.getElementById("futureicon2");
+let futureIcon3 = document.getElementById("futureicon3");
+let futureIcon4 = document.getElementById("futureicon4");
+let futureIcon5 = document.getElementById("futureicon5");
 
 function getDate() {
   let now = new Date();
@@ -82,20 +99,48 @@ function displayTemperature(cityInfo, futureInfo) {
   iconElement.setAttribute("alt", description);
 
   currentTemp = cityInfo.main;
+  let temp = Math.round(currentTemp.temp);
+  temperatureElement.innerHTML = temp;
 
   let highTemp = Math.round(cityInfo.main.temp_max);
   let lowTemp = Math.round(cityInfo.main.temp_min);
   highTempElement.innerHTML = `${highTemp}º`;
   lowTempElement.innerHTML = `${lowTemp}º`;
-  let temp = Math.round(currentTemp.temp);
-  temperatureElement.innerHTML = temp;
   let humidity = Math.round(cityInfo.main.humidity);
   humidityElement.innerHTML = `${humidity}%`;
   let windSpeed = Math.round(cityInfo.wind.speed);
   windElement.innerHTML = windSpeed;
 
-  let futurehightemp1 = document.getElementById("futurehightemp1");
-  futurehightemp1.innerHTML = `${futureInfo[0].main.temp}º`;
+  futureHighTemp1 = futureInfo[0].main.temp_max;
+  futureLowTemp1 = futureInfo[0].main.temp_min;
+  futureHighTemp2 = futureInfo[1].main.temp_max;
+  futureLowTemp2 = futureInfo[1].main.temp_min;
+  futureLowTemp3 = futureInfo[2].main.temp_min;
+  futureHighTemp3 = futureInfo[2].main.temp_max;
+  futureHighTemp4 = futureInfo[3].main.temp_max;
+  futureLowTemp4 = futureInfo[3].main.temp_min;
+  futureHighTemp5 = futureInfo[4].main.temp_max;
+  futureLowTemp5 = futureInfo[4].main.temp_min;
+
+  futureHighTemp1Element.innerHTML = `${Math.round(futureHighTemp1)}º`;
+  futureLowTemp1Element.innerHTML = `${Math.round(futureLowTemp1)}º`;
+  futureIcon1.src = `http://openweathermap.org/img/wn/${futureInfo[0].weather[0].icon}@2x.png`;
+
+  futureHighTemp2Element.innerHTML = `${Math.round(futureHighTemp2)}º`;
+  futureLowTemp2Element.innerHTML = `${Math.round(futureLowTemp2)}º`;
+  futureIcon2.src = `http://openweathermap.org/img/wn/${futureInfo[1].weather[0].icon}@2x.png`;
+
+  futureHighTemp3Element.innerHTML = `${Math.round(futureHighTemp3)}º`;
+  futureLowTemp3Element.innerHTML = `${Math.round(futureLowTemp3)}º`;
+  futureIcon3.src = `http://openweathermap.org/img/wn/${futureInfo[2].weather[0].icon}@2x.png`;
+
+  futureHighTemp4Element.innerHTML = `${Math.round(futureHighTemp4)}º`;
+  futureLowTemp4Element.innerHTML = `${Math.round(futureLowTemp4)}º`;
+  futureIcon4.src = `http://openweathermap.org/img/wn/${futureInfo[3].weather[0].icon}@2x.png`;
+
+  futureHighTemp5Element.innerHTML = `${Math.round(futureHighTemp5)}º`;
+  futureLowTemp5Element.innerHTML = `${Math.round(futureLowTemp5)}º`;
+  futureIcon5.src = `http://openweathermap.org/img/wn/${futureInfo[4].weather[0].icon}@2x.png`;
 }
 
 function displayCelsius(event) {
@@ -109,7 +154,37 @@ function displayCelsius(event) {
   lowTempElement.innerHTML = `${Math.round(
     ((currentTemp.temp_min - 32) * 5) / 9
   )}º`;
+  futureHighTemp1Element.innerHTML = `${Math.round(
+    ((futureHighTemp1 - 32) * 5) / 9
+  )}º`;
+  futureHighTemp2Element.innerHTML = `${Math.round(
+    ((futureHighTemp2 - 32) * 5) / 9
+  )}º`;
+  futureHighTemp3Element.innerHTML = `${Math.round(
+    ((futureHighTemp3 - 32) * 5) / 9
+  )}º`;
+  futureHighTemp4Element.innerHTML = `${Math.round(
+    ((futureHighTemp4 - 32) * 5) / 9
+  )}º`;
+  futureHighTemp5Element.innerHTML = `${Math.round(
+    ((futureHighTemp5 - 32) * 5) / 9
+  )}º`;
 
+  futureLowTemp1Element.innerHTML = `${Math.round(
+    ((futureLowTemp1 - 32) * 5) / 9
+  )}º`;
+  futureLowTemp2Element.innerHTML = `${Math.round(
+    ((futureLowTemp2 - 32) * 5) / 9
+  )}º`;
+  futureLowTemp3Element.innerHTML = `${Math.round(
+    ((futureLowTemp3 - 32) * 5) / 9
+  )}º`;
+  futureLowTemp4Element.innerHTML = `${Math.round(
+    ((futureLowTemp4 - 32) * 5) / 9
+  )}º`;
+  futureLowTemp5Element.innerHTML = `${Math.round(
+    ((futureLowTemp5 - 32) * 5) / 9
+  )}º`;
   //remove active class in the ferh link
 }
 
@@ -119,6 +194,17 @@ function displayFahrenheit(event) {
   tempElement.innerHTML = Math.round(currentTemp.temp);
   highTempElement.innerHTML = `${Math.round(currentTemp.temp_max)}º`;
   lowTempElement.innerHTML = `${Math.round(currentTemp.temp_min)}º`;
+  futureHighTemp1Element.innerHTML = `${Math.round(futureHighTemp1)}º`;
+  futureLowTemp1Element.innerHTML = `${Math.round(futureLowTemp1)}º`;
+  futureHighTemp2Element.innerHTML = `${Math.round(futureHighTemp2)}º`;
+  futureLowTemp2Element.innerHTML = `${Math.round(futureLowTemp2)}º`;
+  futureHighTemp3Element.innerHTML = `${Math.round(futureHighTemp3)}º`;
+  futureLowTemp3Element.innerHTML = `${Math.round(futureLowTemp3)}º`;
+
+  futureHighTemp4Element.innerHTML = `${Math.round(futureHighTemp4)}º`;
+  futureLowTemp4Element.innerHTML = `${Math.round(futureLowTemp4)}º`;
+  futureHighTemp5Element.innerHTML = `${Math.round(futureHighTemp5)}º`;
+  futureLowTemp5Element.innerHTML = `${Math.round(futureLowTemp5)}º`;
 }
 
 //   let messageElement = document.querySelector(“#message”);
@@ -130,6 +216,16 @@ function displayFahrenheit(event) {
 // }
 
 let currentTemp = null;
+let futureHighTemp1 = null;
+let futureHighTemp2 = null;
+let futureHighTemp3 = null;
+let futureHighTemp4 = null;
+let futureHighTemp5 = null;
+let futureLowTemp1 = null;
+let futureLowTemp2 = null;
+let futureLowTemp3 = null;
+let futureLowTemp4 = null;
+let futureLowTemp5 = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
