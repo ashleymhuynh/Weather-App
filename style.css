@@ -62,18 +62,23 @@ li {
 }
 #future-date1 {
   grid-area: F;
+  border-top: 2px solid red;
 }
 #future-date2 {
   grid-area: G;
+  border-top: 2px solid red;
 }
 #future-date3 {
   grid-area: H;
+  border-top: 2px solid red;
 }
 #future-date4 {
   grid-area: I;
+  border-top: 2px solid red;
 }
 #future-date5 {
   grid-area: J;
+  border-top: 2px solid red;
 }
 .futureweatherdate {
   text-align: center;

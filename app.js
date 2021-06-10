@@ -31,6 +31,7 @@ let futureIcon5 = document.getElementById("futureicon5");
 
 function getDate() {
   let now = new Date();
+  let date = now.getDate();
   let hours = now.getHours();
   let minutes = now.getMinutes();
   let dayIndex = now.getDay();
@@ -43,19 +44,31 @@ function getDate() {
     "Friday",
     "Saturday",
   ];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
   let currentDay = daysofWeek[dayIndex];
+  let month = months[now.getMonth()];
   if (hours < 10) {
     hours = `0${hours}`;
   }
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  restOfWeek();
-  return `${currentDay}, ${hours}:${minutes}`;
+  return `${currentDay}, ${month} ${date} ${hours}:${minutes}`;
 }
-
-function restOfWeek() {}
 
 let currentTime = document.querySelector("#currentdate");
 currentTime.innerHTML = getDate();
@@ -74,21 +87,22 @@ function searchCity(event) {
 async function fetchData(inputCity) {
   const apiKey = "650fb9db077f61ca16fc2d3df93a734e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&appid=${apiKey}&units=imperial`;
-  let futureUrl = `http://api.openweathermap.org/data/2.5/find?q=${inputCity}&units=imperial&appid=650fb9db077f61ca16fc2d3df93a734e`;
+  let futureUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${inputCity}&units=imperial&appid=650fb9db077f61ca16fc2d3df93a734e`;
   try {
     const response = await axios.get(apiUrl);
     const futureResponse = await axios.get(futureUrl);
     const cityInfo = response.data;
     const futureInfo = futureResponse.data.list;
     console.log(cityInfo);
-    console.log(futureResponse.data.list);
-    displayTemperature(cityInfo, futureInfo);
+    console.log(futureInfo);
+    displayTemperature(cityInfo);
+    displayFutureWeather(futureInfo);
   } catch (error) {
     console.error(error.message);
   }
 }
 
-function displayTemperature(cityInfo, futureInfo) {
+function displayTemperature(cityInfo, futureInfoArray) {
   let description = cityInfo.weather[0].description;
   descriptionElement.innerHTML = description;
   let icon = cityInfo.weather[0].icon;
@@ -110,37 +124,69 @@ function displayTemperature(cityInfo, futureInfo) {
   humidityElement.innerHTML = `${humidity}%`;
   let windSpeed = Math.round(cityInfo.wind.speed);
   windElement.innerHTML = windSpeed;
+}
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  return days[day];
+}
+
+function displayFutureWeather(futureInfo) {
   futureHighTemp1 = futureInfo[0].main.temp_max;
   futureLowTemp1 = futureInfo[0].main.temp_min;
-  futureHighTemp2 = futureInfo[1].main.temp_max;
-  futureLowTemp2 = futureInfo[1].main.temp_min;
-  futureLowTemp3 = futureInfo[2].main.temp_min;
-  futureHighTemp3 = futureInfo[2].main.temp_max;
-  futureHighTemp4 = futureInfo[3].main.temp_max;
-  futureLowTemp4 = futureInfo[3].main.temp_min;
-  futureHighTemp5 = futureInfo[4].main.temp_max;
-  futureLowTemp5 = futureInfo[4].main.temp_min;
+  futureHighTemp2 = futureInfo[8].main.temp_max;
+  futureLowTemp2 = futureInfo[8].main.temp_min;
+  futureLowTemp3 = futureInfo[16].main.temp_min;
+  futureHighTemp3 = futureInfo[16].main.temp_max;
+  futureHighTemp4 = futureInfo[24].main.temp_max;
+  futureLowTemp4 = futureInfo[24].main.temp_min;
+  futureHighTemp5 = futureInfo[32].main.temp_max;
+  futureLowTemp5 = futureInfo[32].main.temp_min;
 
   futureHighTemp1Element.innerHTML = `${Math.round(futureHighTemp1)}º`;
   futureLowTemp1Element.innerHTML = `${Math.round(futureLowTemp1)}º`;
   futureIcon1.src = `http://openweathermap.org/img/wn/${futureInfo[0].weather[0].icon}@2x.png`;
 
+  let futureDate1 = document.querySelector("#future-date1 h4");
+  futureDate1.innerText = `${formatDay(futureInfo[0].dt)}`;
+
+  let futureDate2 = document.querySelector("#future-date2 h4");
+  futureDate2.innerText = `${formatDay(futureInfo[8].dt)}`;
+
+  let futureDate3 = document.querySelector("#future-date3 h4");
+  futureDate3.innerText = `${formatDay(futureInfo[16].dt)}`;
+
+  let futureDate4 = document.querySelector("#future-date4 h4");
+  futureDate4.innerText = `${formatDay(futureInfo[24].dt)}`;
+
+  let futureDate5 = document.querySelector("#future-date5 h4");
+  futureDate5.innerText = `${formatDay(futureInfo[32].dt)}`;
+
   futureHighTemp2Element.innerHTML = `${Math.round(futureHighTemp2)}º`;
   futureLowTemp2Element.innerHTML = `${Math.round(futureLowTemp2)}º`;
-  futureIcon2.src = `http://openweathermap.org/img/wn/${futureInfo[1].weather[0].icon}@2x.png`;
+  futureIcon2.src = `http://openweathermap.org/img/wn/${futureInfo[8].weather[0].icon}@2x.png`;
 
   futureHighTemp3Element.innerHTML = `${Math.round(futureHighTemp3)}º`;
   futureLowTemp3Element.innerHTML = `${Math.round(futureLowTemp3)}º`;
-  futureIcon3.src = `http://openweathermap.org/img/wn/${futureInfo[2].weather[0].icon}@2x.png`;
+  futureIcon3.src = `http://openweathermap.org/img/wn/${futureInfo[16].weather[0].icon}@2x.png`;
 
   futureHighTemp4Element.innerHTML = `${Math.round(futureHighTemp4)}º`;
   futureLowTemp4Element.innerHTML = `${Math.round(futureLowTemp4)}º`;
-  futureIcon4.src = `http://openweathermap.org/img/wn/${futureInfo[3].weather[0].icon}@2x.png`;
+  futureIcon4.src = `http://openweathermap.org/img/wn/${futureInfo[24].weather[0].icon}@2x.png`;
 
   futureHighTemp5Element.innerHTML = `${Math.round(futureHighTemp5)}º`;
   futureLowTemp5Element.innerHTML = `${Math.round(futureLowTemp5)}º`;
-  futureIcon5.src = `http://openweathermap.org/img/wn/${futureInfo[4].weather[0].icon}@2x.png`;
+  futureIcon5.src = `http://openweathermap.org/img/wn/${futureInfo[32].weather[0].icon}@2x.png`;
 }
 
 function displayCelsius(event) {
