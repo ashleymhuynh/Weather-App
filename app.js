@@ -34,9 +34,11 @@ function getDate() {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-
+  restOfWeek();
   return `${currentDay}, ${hours}:${minutes}`;
 }
+
+function restOfWeek() {}
 
 let currentTime = document.querySelector("#currentdate");
 currentTime.innerHTML = getDate();
@@ -55,10 +57,13 @@ function searchCity(event) {
 async function fetchData(inputCity) {
   const apiKey = "650fb9db077f61ca16fc2d3df93a734e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&appid=${apiKey}&units=imperial`;
+  let futureUrl = `http://api.openweathermap.org/data/2.5/find?q=${inputCity}&units=imperial&appid=650fb9db077f61ca16fc2d3df93a734e`;
   try {
     const response = await axios.get(apiUrl);
+    const futureResponse = await axios.get(futureUrl);
     const cityInfo = response.data;
     console.log(cityInfo);
+    console.log(futureResponse.data.list);
     displayTemperature(cityInfo);
   } catch (error) {
     console.error(error.message);
