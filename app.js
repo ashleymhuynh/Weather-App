@@ -1,10 +1,23 @@
-//create a function to display current time
+//global variables
+let descriptionElement = document.getElementById("weather-description");
+let iconElement = document.getElementById("weather-icon");
+let highTempElement = document.getElementById("currenthightemp");
+let lowTempElement = document.getElementById("currentlowtemp");
+let temperatureElement = document.querySelector("#currenttemp");
+let humidityElement = document.querySelector("#humidity");
+let windElement = document.querySelector("#wind");
+let dayone = document.getElementById("future-date1");
+let daytwo = document.getElementById("future-date2");
+let daythree = document.getElementById("future-date3");
+let dayfour = document.getElementById("future-date4");
+let dayfive = document.getElementById("future-date5");
+
 function getDate() {
   let now = new Date();
   let hours = now.getHours();
   let minutes = now.getMinutes();
   let dayIndex = now.getDay();
-  let days = [
+  let daysofWeek = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -13,14 +26,16 @@ function getDate() {
     "Friday",
     "Saturday",
   ];
-  let day = days[dayIndex];
+
+  let currentDay = daysofWeek[dayIndex];
   if (hours < 10) {
     hours = `0${hours}`;
   }
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return `${day}, ${hours}:${minutes}`;
+
+  return `${currentDay}, ${hours}:${minutes}`;
 }
 
 let currentTime = document.querySelector("#currentdate");
@@ -51,14 +66,6 @@ async function fetchData(inputCity) {
 }
 
 function displayTemperature(cityInfo) {
-  let descriptionElement = document.getElementById("weather-description");
-  let iconElement = document.getElementById("weather-icon");
-  let highTempElement = document.getElementById("currenthightemp");
-  let lowTempElement = document.getElementById("currentlowtemp");
-  let temperatureElement = document.querySelector("#currenttemp");
-  let humidityElement = document.querySelector("#humidity");
-  let windElement = document.querySelector("#wind");
-
   let description = cityInfo.weather[0].description;
   descriptionElement.innerHTML = description;
   let icon = cityInfo.weather[0].icon;
@@ -68,14 +75,14 @@ function displayTemperature(cityInfo) {
   );
   iconElement.setAttribute("alt", description);
 
-  fahrenheitTemp = cityInfo.main.temp;
+  currentTemp = cityInfo.main;
 
   let highTemp = Math.round(cityInfo.main.temp_max);
   let lowTemp = Math.round(cityInfo.main.temp_min);
   highTempElement.innerHTML = `${highTemp}º`;
   lowTempElement.innerHTML = `${lowTemp}º`;
-  let currentTemp = Math.round(fahrenheitTemp);
-  temperatureElement.innerHTML = currentTemp;
+  let temp = Math.round(currentTemp.temp);
+  temperatureElement.innerHTML = temp;
   let humidity = Math.round(cityInfo.main.humidity);
   humidityElement.innerHTML = `${humidity}%`;
   let windSpeed = Math.round(cityInfo.wind.speed);
@@ -85,14 +92,24 @@ function displayTemperature(cityInfo) {
 function displayCelsius(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#currenttemp");
-  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  let celsiusTemp = ((currentTemp.temp - 32) * 5) / 9;
   tempElement.innerHTML = Math.round(celsiusTemp);
+  highTempElement.innerHTML = `${Math.round(
+    ((currentTemp.temp_max - 32) * 5) / 9
+  )}º`;
+  lowTempElement.innerHTML = `${Math.round(
+    ((currentTemp.temp_min - 32) * 5) / 9
+  )}º`;
+
+  //remove active class in the ferh link
 }
 
 function displayFahrenheit(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#currenttemp");
-  tempElement.innerHTML = Math.round(fahrenheitTemp);
+  tempElement.innerHTML = Math.round(currentTemp.temp);
+  highTempElement.innerHTML = `${Math.round(currentTemp.temp_max)}º`;
+  lowTempElement.innerHTML = `${Math.round(currentTemp.temp_min)}º`;
 }
 
 //   let messageElement = document.querySelector(“#message”);
@@ -103,7 +120,7 @@ function displayFahrenheit(event) {
 //   }
 // }
 
-let fahrenheitTemp = null;
+let currentTemp = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);

@@ -98,3 +98,7 @@ li {
   font-size: 16px;
   top: -24px;
 }
+.currentweatherinfo3 .active {
+  color: black;
+  cursor: default;
+}
