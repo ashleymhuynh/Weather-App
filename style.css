@@ -1,17 +1,12 @@
 /* body {
-  background: radial-gradient(
-    circle at -8.9% 51.2%,
-    rgb(255, 124, 0) 0%,
-    rgb(255, 124, 0) 15.9%,
-    rgb(255, 163, 77) 15.9%,
-    rgb(255, 163, 77) 24.4%,
-    rgb(37, 45, 49) 24.5%,
-    rgb(37, 45, 49) 66%
+  background: linear-gradient(
+    109.6deg,
+    rgb(204, 228, 247) 11.2%,
+    rgb(237, 246, 250) 100.2%
   );
-  padding: 20px;
 } */
 h1 {
-  /* color: #fff; */
+  color: #f49015;
   display: block;
   text-align: center;
 }
@@ -23,9 +18,16 @@ li {
   list-style-type: none;
   text-transform: capitalize;
 }
-
+footer {
+  position: relative;
+  margin-top: -10px;
+  margin-left: 65px;
+}
 .container {
   max-width: 800px;
+  background: url(img/day_img.webp);
+  opacity: 0.9;
+
   margin: 30px auto;
   padding: 30px;
   border: 3px solid black;
@@ -60,6 +62,20 @@ li {
 .currentweatherinfo4 {
   grid-area: D;
 }
+.currentweatherinfo3 strong {
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 400;
+}
+.currentweatherinfo3 .units {
+  position: relative;
+  font-size: 16px;
+  top: -24px;
+}
+.currentweatherinfo3 .active {
+  color: black;
+  cursor: default;
+}
 #future-date1 {
   grid-area: F;
   border-top: 2px solid red;
@@ -92,18 +108,4 @@ li {
   text-align: center;
   margin-bottom: 25px;
   font-size: 18px;
-}
-.currentweatherinfo3 strong {
-  font-size: 50px;
-  line-height: 1;
-  font-weight: 400;
-}
-.currentweatherinfo3 .units {
-  position: relative;
-  font-size: 16px;
-  top: -24px;
-}
-.currentweatherinfo3 .active {
-  color: black;
-  cursor: default;
 }
