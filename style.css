@@ -1,8 +1,8 @@
 body {
   background: linear-gradient(
     109.6deg,
-    rgb(204, 228, 247) 11.2%,
-    rgb(237, 246, 250) 100.2%
+    rgb(223, 234, 247) 11.2%,
+    rgb(244, 248, 252) 91.1%
   );
 }
 h1 {
@@ -102,7 +102,7 @@ footer {
 }
 .currentweatherinfo3 .active {
   color: black;
-  cursor: default;
+  cursor: pointer;
 }
 #future-date1 {
   grid-area: F;

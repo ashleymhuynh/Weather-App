@@ -87,7 +87,7 @@ function searchCity(event) {
 async function fetchData(inputCity) {
   const apiKey = "650fb9db077f61ca16fc2d3df93a734e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&appid=${apiKey}&units=imperial`;
-  let futureUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${inputCity}&units=imperial&appid=650fb9db077f61ca16fc2d3df93a734e`;
+  let futureUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${inputCity}&units=imperial&appid=650fb9db077f61ca16fc2d3df93a734e`;
   try {
     const response = await axios.get(apiUrl);
     const futureResponse = await axios.get(futureUrl);
@@ -108,7 +108,7 @@ function displayTemperature(cityInfo, futureInfoArray) {
   let icon = cityInfo.weather[0].icon;
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${icon}@2x.png`
+    `https://openweathermap.org/img/wn/${icon}@2x.png`
   );
   iconElement.setAttribute("alt", description);
 
@@ -155,7 +155,7 @@ function displayFutureWeather(futureInfo) {
 
   futureHighTemp1Element.innerHTML = `${Math.round(futureHighTemp1)}º`;
   futureLowTemp1Element.innerHTML = `${Math.round(futureLowTemp1)}º`;
-  futureIcon1.src = `http://openweathermap.org/img/wn/${futureInfo[0].weather[0].icon}@2x.png`;
+  futureIcon1.src = `https://openweathermap.org/img/wn/${futureInfo[0].weather[0].icon}@2x.png`;
 
   let futureDate1 = document.querySelector("#future-date1 h4");
   futureDate1.innerText = `${formatDay(futureInfo[0].dt)}`;
@@ -174,19 +174,19 @@ function displayFutureWeather(futureInfo) {
 
   futureHighTemp2Element.innerHTML = `${Math.round(futureHighTemp2)}º`;
   futureLowTemp2Element.innerHTML = `${Math.round(futureLowTemp2)}º`;
-  futureIcon2.src = `http://openweathermap.org/img/wn/${futureInfo[8].weather[0].icon}@2x.png`;
+  futureIcon2.src = `https://openweathermap.org/img/wn/${futureInfo[8].weather[0].icon}@2x.png`;
 
   futureHighTemp3Element.innerHTML = `${Math.round(futureHighTemp3)}º`;
   futureLowTemp3Element.innerHTML = `${Math.round(futureLowTemp3)}º`;
-  futureIcon3.src = `http://openweathermap.org/img/wn/${futureInfo[16].weather[0].icon}@2x.png`;
+  futureIcon3.src = `https://openweathermap.org/img/wn/${futureInfo[16].weather[0].icon}@2x.png`;
 
   futureHighTemp4Element.innerHTML = `${Math.round(futureHighTemp4)}º`;
   futureLowTemp4Element.innerHTML = `${Math.round(futureLowTemp4)}º`;
-  futureIcon4.src = `http://openweathermap.org/img/wn/${futureInfo[24].weather[0].icon}@2x.png`;
+  futureIcon4.src = `https://openweathermap.org/img/wn/${futureInfo[24].weather[0].icon}@2x.png`;
 
   futureHighTemp5Element.innerHTML = `${Math.round(futureHighTemp5)}º`;
   futureLowTemp5Element.innerHTML = `${Math.round(futureLowTemp5)}º`;
-  futureIcon5.src = `http://openweathermap.org/img/wn/${futureInfo[32].weather[0].icon}@2x.png`;
+  futureIcon5.src = `https://openweathermap.org/img/wn/${futureInfo[32].weather[0].icon}@2x.png`;
 }
 
 function displayCelsius(event) {
