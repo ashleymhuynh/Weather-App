@@ -1,33 +1,57 @@
-/* body {
+body {
   background: linear-gradient(
     109.6deg,
     rgb(204, 228, 247) 11.2%,
     rgb(237, 246, 250) 100.2%
   );
-} */
+}
 h1 {
   color: #f49015;
   display: block;
   text-align: center;
+  font-family: "Kaushan Script", cursive;
+  font-weight: 900;
 }
 ul {
   padding: 0;
-  margin: 30px 15px 0 15px;
+  margin: 50px 15px 0 15px;
 }
 li {
   list-style-type: none;
   text-transform: capitalize;
+  margin-bottom: 10px;
 }
 footer {
   position: relative;
-  margin-top: -10px;
-  margin-left: 65px;
+}
+.submit-button {
+  margin-left: 30px;
+  background-color: #5c6062;
+  border: #151515;
+  color: #ffff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  box-shadow: 1px 2px #76746b;
+  font-size: 15px;
+  transition: all 200ms ease-in-out;
+}
+.submit-button:hover {
+  color: #ec7c5d;
+  background: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#searched-city {
+  border: 2px solid #58595b;
+  border-radius: 4px;
+  padding: 5px 35px 5px 10px;
+  background-color: #fce7c4;
 }
 .container {
   max-width: 800px;
+  font-family: "Girassol", cursive;
   background: url(img/day_img.webp);
   opacity: 0.9;
-
   margin: 30px auto;
   padding: 30px;
   border: 3px solid black;
@@ -40,6 +64,10 @@ footer {
 }
 #search-form {
   grid-area: A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 .currentweatherinfo1 {
   grid-area: B;
@@ -78,23 +106,23 @@ footer {
 }
 #future-date1 {
   grid-area: F;
-  border-top: 2px solid red;
+  border-top: 3px solid rgb(242, 242, 242);
 }
 #future-date2 {
   grid-area: G;
-  border-top: 2px solid red;
+  border-top: 3px solid rgb(242, 242, 242);
 }
 #future-date3 {
   grid-area: H;
-  border-top: 2px solid red;
+  border-top: 3px solid rgb(242, 242, 242);
 }
 #future-date4 {
   grid-area: I;
-  border-top: 2px solid red;
+  border-top: 3px solid rgb(242, 242, 242);
 }
 #future-date5 {
   grid-area: J;
-  border-top: 2px solid red;
+  border-top: 3px solid rgb(242, 242, 242);
 }
 .futureweatherdate {
   text-align: center;
