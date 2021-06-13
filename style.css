@@ -4,12 +4,14 @@ body {
     rgb(223, 234, 247) 11.2%,
     rgb(244, 248, 252) 91.1%
   );
+  margin: 0;
 }
 h1 {
   color: #f49015;
   display: block;
   text-align: center;
   font-family: "Kaushan Script", cursive;
+  font-size: 40px;
   font-weight: 900;
 }
 ul {
@@ -22,7 +24,8 @@ li {
   margin-bottom: 10px;
 }
 footer {
-  position: relative;
+  color: black;
+  text-align: center;
 }
 .submit-button {
   margin-left: 30px;
@@ -51,7 +54,7 @@ footer {
   max-width: 800px;
   font-family: "Girassol", cursive;
   background: url(img/day_img.webp);
-  opacity: 0.9;
+  opacity: 0.89;
   margin: 30px auto;
   padding: 30px;
   border: 3px solid black;
@@ -59,9 +62,10 @@ footer {
   display: grid;
   grid-template-areas:
     "A A A A A"
-    "B B K C D"
+    "B B C D E"
     "F G H I J";
 }
+
 #search-form {
   grid-area: A;
   display: flex;
@@ -80,15 +84,15 @@ footer {
   font-size: 30px;
 }
 .currentweatherinfo2 {
-  grid-area: K;
+  grid-area: C;
 }
 .currentweatherinfo3 {
-  grid-area: C;
+  grid-area: D;
   text-align: center;
   margin-top: 40px;
 }
-.currentweatherinfo4 {
-  grid-area: D;
+#currentweatherinfo4 {
+  grid-area: E;
 }
 .currentweatherinfo3 strong {
   font-size: 50px;
@@ -136,4 +140,66 @@ footer {
   text-align: center;
   margin-bottom: 25px;
   font-size: 18px;
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    background-position: bottom;
+    width: 90vw;
+    height: 120vh;
+    padding: 5px;
+    display: grid;
+    grid-template-areas:
+      "A A"
+      "D B"
+      "C E"
+      "F G"
+      "H I"
+      "J J";
+  }
+  #search-form {
+    margin-left: 90px;
+    margin-top: 20px;
+  }
+  .currentweatherinfo1 {
+    text-align: center;
+    margin-right: 90px;
+    margin-top: 65px;
+  }
+  .currentweatherinfo2 {
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+  .currentweatherinfo3 {
+    margin-top: 80px;
+    text-align: center;
+    margin-left: 15px;
+  }
+  #currentweatherinfo4 {
+    text-align: center;
+    margin-right: 90px;
+    margin-top: 35px;
+  }
+
+  #future-date1,
+  #future-date3 {
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-top: 3px solid rgb(242, 242, 242);
+  }
+  #future-date2,
+  #future-date4 {
+    margin-right: 70px;
+    border-top: 3px solid rgb(242, 242, 242);
+  }
+  #future-date5 {
+    align-items: center;
+    margin-right: 90px;
+  }
+  .submit-button {
+    margin-right: 150px;
+  }
+  .futureweather {
+    font-size: 0.9em;
+  }
 }

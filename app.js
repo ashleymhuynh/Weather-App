@@ -61,17 +61,34 @@ function getDate() {
 
   let currentDay = daysofWeek[dayIndex];
   let month = months[now.getMonth()];
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return `${currentDay}, ${month} ${date} ${hours}:${minutes}`;
+  if (hours < 10) {
+    let time = `0${hours}:${minutes} am`;
+  }
+  if (hours > 11) {
+    time = `${((hours + 11) % 12) + 1}:${minutes} pm`;
+  }
+  changeBackground(time);
+  return `${currentDay}, ${month} ${date} ${time}`;
 }
 
 let currentTime = document.querySelector("#currentdate");
 currentTime.innerHTML = getDate();
+
+function changeBackground(time) {
+  let containerBackground = document.querySelector(".container");
+  let inputForm = document.getElementById("searched-city");
+  let submitButton = document.querySelector(".submit-button");
+  let header = document.querySelector("h1");
+  if (time >= "6:00 pm") {
+    containerBackground.style.background = "url('img/night_img.webp')";
+    inputForm.style.background = "#cdc9f2";
+    submitButton.style.background = "black";
+    header.style.color = "#6565BD";
+  }
+}
 
 function searchCity(event) {
   event.preventDefault();
