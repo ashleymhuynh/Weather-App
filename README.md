@@ -10,6 +10,10 @@ This will allow users to look up the weather for the day as well as a 5 day fore
 
 ## API and Data Sample
 
+OpenWeather API is used to extract current and a 5 day forecast.
+
+<img width="842" alt="codeSnippet1" src="https://user-images.githubusercontent.com/83625775/121824490-5e3ecc80-cc61-11eb-9f06-0d3b42fff86e.png">
+
 OpenWeather API is used to extract current and a 5 day forecast.  
 ![api sample](/img/Screen)
 
