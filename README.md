@@ -10,7 +10,8 @@ This will allow users to look up the weather for the day as well as a 5 day fore
 
 ## API and Data Sample
 
-https://api.openweathermap.org/data/2.5/weather?q=Los%20Angeles&appid=650fb9db077f61ca16fc2d3df93a734e
+OpenWeather API is used to extract current and a 5 day forecast.  
+![api sample](/img/Screen)
 
 ## Wireframes
 
@@ -23,23 +24,23 @@ https://api.openweathermap.org/data/2.5/weather?q=Los%20Angeles&appid=650fb9db07
 - Axios call on OpenWeather API
 - Display results on page
 - Include icon on weather
-- Implement UI by changing text colors and background to match time of day (ie. night/ dark colors)
-- Provide basic forecast for next 5 days
 - Clear previous results upon secondary search
 
 #### PostMVP
 
-- A current location button will be displayed so that users can use it to get their exact location as opposed to inputting their city
+- Implement UI by changing text colors and background to match time of day (ie. night/ dark colors)
+- Provide basic forecast for next 5 days
+- Convert fahrenheit degrees to celsius
 
 ## Project Schedule
 
 | Day        | Deliverable                                        | Status     |
 | ---------- | -------------------------------------------------- | ---------- |
 | June 8     | Prompt / Wireframes / Priority Matrix / Timeframes | Complete   |
-| June 8-9   | Project Approval                                   | Incomplete |
-| June 11    | Core Application Structure (HTML, CSS, etc.)       | Incomplete |
-| June 12    | Initial Clickable Model                            | Incomplete |
-| June 12-13 | MVP                                                | Incomplete |
+| June 8-9   | Project Approval                                   | Complete   |
+| June 11    | Core Application Structure (HTML, CSS, etc.)       | Complete   |
+| June 12    | Initial Clickable Model                            | Complete   |
+| June 12-13 | MVP & Final Edits                                  | Complete   |
 | June 14    | Presentations/Project Submission                   | Incomplete |
 
 ## Priority Matrix
@@ -50,18 +51,18 @@ https://api.openweathermap.org/data/2.5/weather?q=Los%20Angeles&appid=650fb9db07
 
 | Component            | Priority | Estimated Time | Time Invested | Actual Time |
 | -------------------- | :------: | :------------: | :-----------: | :---------: |
-| Initial HTML setup   |    H     |      3hrs      |               |             |
-| Axios set up         |    H     |      3hrs      |               |             |
-| Render results       |    H     |      3hrs      |               |             |
-| JS Inital            |    H     |      3hrs      |               |             |
-| Other JS             |    H     |      3hrs      |               |             |
-| CSS for basic layout |    M     |      3hrs      |               |             |
-| CSS for results      |    M     |      3hrs      |               |             |
-| Image placement      |    M     |      3hrs      |               |             |
-| Media query          |    H     |      3hrs      |               |             |
-| General Research     |    H     |      3hrs      |               |             |
-| Debugging            |    H     |      3hrs      |               |             |
-| Total                |    H     |     33hrs      |               |             |
+| Initial HTML setup   |    H     |      3hrs      |      3hr      |             |
+| Axios set up         |    H     |      3hrs      |      3hr      |             |
+| Render results       |    H     |      3hrs      |      3hr      |             |
+| JS Inital            |    H     |      3hrs      |      3hr      |             |
+| Other JS             |    H     |      3hrs      |      3hr      |             |
+| CSS for basic layout |    M     |      3hrs      |      3hr      |             |
+| CSS for results      |    M     |      3hrs      |      3hr      |             |
+| Image placement      |    M     |      3hrs      |      3hr      |             |
+| Media query          |    H     |      3hrs      |      4hr      |             |
+| General Research     |    H     |      3hrs      |      3hr      |             |
+| Debugging            |    H     |      3hrs      |      2hr      |             |
+| Total                |    H     |     33hrs      |     33hr      |             |
 
 ## Code Snippet
 

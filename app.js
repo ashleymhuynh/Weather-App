@@ -64,12 +64,11 @@ function getDate() {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  if (hours < 10) {
-    let time = `0${hours}:${minutes} am`;
-  }
-  if (hours > 11) {
-    time = `${((hours + 11) % 12) + 1}:${minutes} pm`;
-  }
+  let time =
+    hours < 10
+      ? `0${hours}:${minutes} am`
+      : `${((hours + 11) % 12) + 1}:${minutes} pm`;
+
   changeBackground(time);
   return `${currentDay}, ${month} ${date} ${time}`;
 }
